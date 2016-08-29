@@ -15,6 +15,6 @@ node_js:
 
 
 notifications:
-  slack: bargainbetter:$SLACK_TOKEN
+  slack: bargainbetter:dlBY6IzAfXXb8pVqTsBzc8hg
   on_sucess: always
   on_failure: always  
