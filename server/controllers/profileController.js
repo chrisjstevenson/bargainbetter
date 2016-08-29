@@ -3,12 +3,12 @@ var linkedInService = require('../services/linkedInService');
 var mailService = require('../services/mailService');
 var request = require('request');
 
-profileContoller.index = function index(req, res) {
-    res.render('profile', { token: req.query.t });
-};
+//profileContoller.index = function index(req, res) {
+//    res.render('profile', { token: req.query.t });
+//};
 
-profileContoller.register = function register(req, res) {
-    linkedInService.getProfile(req.params.token)
+profileContoller.index = function register(req, res) {
+    linkedInService.getProfile(req.query.t)
         .then(basicProfile => {
 
             // create the subscriber object
