@@ -1,24 +1,10 @@
-<% include header %>
+<% include head %>
 
-<body class="registration">
+<body>
 
 <div class="carousel">
 
-    <div class="masthead clearfix">
-        <a href="/" class="navbar-left"><img class="logo" src="/assets/images/ok_sign_wide_layout.png"></a>
-        <div class="inner">
-
-            <nav>
-                <ul class="nav masthead-nav">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="#about">How it works</a></li>
-                    <li><a href="#/blog">Blog</a></li>
-                    <li><a href="#newsletter">Newsletter</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
-                </ul>
-            </nav>
-        </div>
-    </div>
+    <% include header %>
 
     <div class="carousel-inner" role="listbox">
         <div class="item active">
@@ -38,12 +24,13 @@
 
 
 <div class="container marketing">
-    <div class="row">
+
+    <div class="row non-featurette">
         <div class="col-lg-4">
             <i class="fa fa-camera fa-5" aria-hidden="true"></i>
             <h2>Post</h2>
             <p>Buy or Sell by posting to the exchange. Provide only your name, a picture of the item, and a price. Don't forget shipping fees.</p>
-        </div><!-- /.col-lg-4 -->
+        </div>
         <div class="col-lg-4">
             <i class="fa fa-comments-o fa-5" aria-hidden="true"></i>
             <h2>Negotiate</h2>
@@ -55,9 +42,50 @@
             <p>Exchange funds using Venmo or Paypal. Provide feedback on the buyer and the experience.</p>
         </div>
     </div>
-</div>
 
 
- <script src="/node_modules/jquery/dist/jquery.min.js"></script>
-</body>
-</html>
+    <hr class="featurette-divider">
+    <a name="howitworks"></a>
+    <div class="row featurette">
+        <div class="col-md-7 col-md-push-5">
+            <h2 class="featurette-heading">How it works. <span class="text-muted">Simple and easy to get started.</span></h2>
+            <p class="lead">
+                Sign up using your LinkedIn account. Buy or Sell by posting to the exchange. Provide only your name, a picture of the item, and a price. Don't forget shipping fees.
+            </p>
+            <p class="lead">
+                Negotiate by clicking on the seller or buyer link in the newsletter. Exchange shipping information or exchange meeting point if you are meeting in person.
+            </p>
+            <p class="lead">
+                Exchange funds with Venmo or Paypal. Provide feedback on the buyer and the experience.
+            </p>
+        </div>
+    </div>
+
+
+    <hr class="featurette-divider">
+    <a name="about"></a>
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading">Bargainbetter. <span class="text-muted">Learn more about us.</span></h2>
+            <p class="lead">
+                BargainBetter is a startup started amongst friends looking to advance the classified ads e-commerce
+                space through a platform that uses professional identities and networks to create trust in the
+                marketplace.
+            </p>
+            <p class="lead">
+                Other platforms that help communities connect and transact are still prone to scams and precarious in
+                person “meetups” with total strangers. Very little has been done to solve the problem of trust.
+            </p>
+            <p class="lead">
+                While we are working on our platform, we will have a weekly newsletter to help you buy and sell using
+                your existing networks. We want users to post things they are looking for and to also post things they
+                are looking to buy. Our plan is to grow, build and develop the platform in a way that is important to you.
+            </p>
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+</div> <!-- end marketing container -->
+
+<% include footer %>

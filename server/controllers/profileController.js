@@ -1,13 +1,13 @@
+var profileContoller = module.exports;
 var linkedInService = require('../services/linkedInService');
 var mailService = require('../services/mailService');
-
 var request = require('request');
 
-module.exports.index = function index(req, res) {
+profileContoller.index = function index(req, res) {
     res.render('profile', { token: req.query.t });
 };
 
-module.exports.register = function register(req, res) {
+profileContoller.register = function register(req, res) {
     linkedInService.getProfile(req.params.token)
         .then(basicProfile => {
 
@@ -31,8 +31,9 @@ module.exports.register = function register(req, res) {
                     log.error(err);
                 });
         })
-        .then(subscriptionResponse => res.render("profile-li", subscriptionResponse));
+        .then(subscriptionResponse => res.render("profile", subscriptionResponse));
 };
+
 
 
 var staticProfile = { emailAddress: 'chris.j.stevenson@gmail.com',

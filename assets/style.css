@@ -1,15 +1,9 @@
-a,
-a:focus,
-a:hover {
-    color: #fff;
-    text-decoration: none;
-}
-
-.btn-awesome {
-    color: #fff;
-    text-shadow: none;
-    border-radius: 50px;
-    font-size: 20px;
+html,
+body {
+    height: 100%;
+    color: #5a5a5a;;
+    text-align: center;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 h2 {
@@ -33,44 +27,12 @@ h4 {
     color: #333;
 }
 
-.btn-linkedin {
-    width: 202px;
-}
 
-.btn-register {
-    width: 202px;
-}
-.btn-register:hover {
-    color: #aaa
-}
-
-.col-centered {
-    margin: 0 auto;
-}
-
-.register-seperator {
-    margin-bottom: 0;
-}
-
-/* Structure */
-
-html,
-body {
-    height: 100%;
-    color: #fff;
-    /*background-color: rgba(0,0,0,.5);*/
-    text-align: center;
-    /*text-shadow: 0 1px 3px rgba(0,0,0,.5);*/
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-footer {
-    background-color: #000;
-}
-
-.regular-text {
-    color: rgba(0,0,0,.5);
-    text-shadow: none;
+footer > a,
+footer > a:focus,
+footer > a:hover {
+    color: #5a5a5a;
+    text-decoration: none;
 }
 
 input {
@@ -79,23 +41,6 @@ input {
     height: 45px;
     border: 1px solid #aaa;
     padding-left: 20px;
-}
-
-.field {
-    margin-top: 13px;
-}
-
-.or {
-    margin-top:22px;
-    margin-bottom:22px;
-}
-
-.label {
-    position: absolute;
-    left: 14px;
-    z-index: 1;
-    color: #666;
-    cursor: text;
 }
 
 .coverpage
@@ -123,6 +68,7 @@ input {
 
 .inner {
     padding: 30px;
+    margin-right:40px
 }
 
 /*
@@ -130,6 +76,7 @@ input {
  */
 .masthead {
     z-index: 500; /* bring it front */
+    background-color: #5a5a5a;
 }
 
 .masthead-brand {
@@ -162,7 +109,7 @@ input {
 .masthead-nav > .active > a:hover,
 .masthead-nav > .active > a:focus {
     color: #fff;
-    border-bottom-color: #fff;
+    border-bottom-color: #a9a9a9;
 }
 
 @media (min-width: 768px) {
@@ -173,8 +120,6 @@ input {
         float: right;
     }
 }
-
-
 
 /*
  * Affix and center
@@ -199,7 +144,7 @@ input {
     .masthead,
     .mastfoot,
     .cover-container {
-        width: 90%; /* Must be percentage or pixels for horizontal alignment */
+        width: 100%; /* Must be percentage or pixels for horizontal alignment */
     }
 }
 
@@ -234,49 +179,15 @@ input {
     width: auto;
 }
 
-.customGrid {
-    padding: 20px;
-    width: 50%;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    vertical-align: top;
-    margin: 0 auto;
-    background: #fff;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -khtml-border-radius: 10px;
-    border-radius: 10px;
-}
-
-.groupOfFields {
-    padding-top: 24px;
-    padding-bottom: 24px;
-}
-
-.logo {
+.navbar-logo {
     float: left;
     width: 300px;
     margin-left: 10px;
 }
 
 
-/* ---------------  NEW PROFILE --------------------- */
-
-
-/* GLOBAL STYLES
+/* NAVBAR
 -------------------------------------------------- */
-/* Padding below the footer and lighter body text */
-
-body {
-    color: #5a5a5a;
-}
-
-
-/* CUSTOMIZE THE NAVBAR
--------------------------------------------------- */
-
-/* Special class on .container surrounding .navbar, used for positioning it into place. */
 .navbar-wrapper {
     position: absolute;
     top: 0;
@@ -347,7 +258,7 @@ body {
 }
 
 
-/* Featurettes
+/* FEATURES
 ------------------------- */
 
 .featurette-divider {
@@ -359,12 +270,15 @@ body {
     font-weight: 300;
     line-height: 1;
     letter-spacing: -1px;
+    text-align:left;
 }
 
+p.lead {
+    text-align: left;
+}
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */
-
 @media (min-width: 768px) {
     /* Navbar positioning foo */
     .navbar-wrapper {
@@ -402,10 +316,22 @@ body {
     }
 }
 
-.img-circle {
-    margin-bottom: 30px;
+/* big ass awesome fonts */
+.fa-5 {
+    font-size: 128pt !important;
 }
 
-.fa-5 {
-    font-size: 72pt !important;
+/* privacy policy */
+.document-container {
+    margin-top: 140px;
+    text-align: left;
+}
+
+.btn-linkedin {
+    width: 214px;
+    font-weight: bold;
+}
+
+.col-centered {
+    margin: 0 auto;
 }
