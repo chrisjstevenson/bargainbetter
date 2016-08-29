@@ -1,0 +1,41 @@
+---
+- name: update apt cache
+  apt: update_cache=yes cache_valid_time=3600
+
+- name: install haproxy
+  apt: name=haproxy state=present
+
+- name: Drop our custom haproxy config in the right spot after template transformation
+  sudo: true
+  template:
+    src: haproxy.cfg
+    dest: /etc/haproxy/haproxy.cfg
+
+# - name: Copy out certs
+#   sudo: true
+#   copy:
+#     src: ../files/server-ssl/{{environment_name}}-{{item}}.pem
+#     dest: /etc/haproxy/
+#   with_items:
+#     - carrier
+#     - v1
+#     - tracker
+
+# - name: haproxy service enabled
+#   sudo: true
+#   service: 
+#     name: haproxy 
+#     enabled: yes
+#     state: restarted
+
+- name: Enable init script
+  replace: dest='/etc/default/haproxy' 
+    regexp='ENABLED=0'
+    replace='ENABLED=1'
+
+- name: haproxy service enabled
+  sudo: true
+  service: 
+    name: haproxy 
+    enabled: yes
+    state: restarted

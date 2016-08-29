@@ -1,0 +1,27 @@
+---
+- name: required folders are available to minos-ops
+  sudo: true
+  file:
+    path=/opt/data
+    state=directory
+    mode=u+rw
+
+- name: ensure droplet-ops user created
+  sudo: true
+  user: name=droplet-ops state=present
+  register: createUser
+
+- name: ensure droplet-ops home folder created
+  sudo: true
+  user: name=droplet-ops state=present home=/opt/data/droplet-ops
+  when: createUser.changed
+
+- name: required folders are available to droplet-ops
+  sudo: true
+  file:
+    path={{item}}
+    state=directory
+    owner=droplet-ops
+    mode=u+rw
+  with_items:
+    - /opt/data

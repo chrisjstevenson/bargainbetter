@@ -1,0 +1,5 @@
+- name: LOCALLY build specified image's Dockerfile
+  local_action: command docker build -t {{image}} {{role_path | default(playbook_dir)}}/.
+  run_once: true
+
+- include: base-docker-image-to-host.yml

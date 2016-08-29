@@ -1,0 +1,4 @@
+- name: deploy jenkins
+  hosts: "jenkins"
+  roles:
+    - jenkins-with-embedded-docker

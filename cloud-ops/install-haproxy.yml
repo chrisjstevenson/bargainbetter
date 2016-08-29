@@ -1,0 +1,9 @@
+---
+#EXAMPLE: ansible-playbook install-haproxy.yml -e 'hosts=pl1'
+ - name: Install a particular version of haproxy to specified hosts
+   hosts: '{{hosts}}'
+   vars:
+     target_haproxy_version: 1.5.4
+   tasks:
+    - include: roles/base-assumptions.yml
+    - include: roles/haproxy.yml

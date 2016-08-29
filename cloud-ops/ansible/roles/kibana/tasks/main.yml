@@ -1,0 +1,31 @@
+- name: deploy kibana to host
+  include: tasks/build-dockerfile-to-host.yml image=kibana
+
+- name: stop existing kibana
+  raw: sudo docker stop kibana
+  ignore_errors: true
+
+- name: remove existing kibana container
+  raw: sudo docker rm kibana
+  ignore_errors: true
+
+# - name: start a kibana container
+#   raw: sudo docker run \
+#          --detach=true \
+#          --publish=5601:5601 \
+#          --env=ELASTICSEARCH_URL=http://{{ansible_host}}:9200 \
+#          --restart=always \
+#          --name=kibana \
+#          rdr-kibana
+
+- name: create and start kibana container - one per for redundancy
+ sudo: true
+ docker:
+   name: kibana
+   image: kibana
+   state: reloaded
+   restart_policy: always
+   ports:
+     - "5601:5601"
+   env:
+     ELASTICSEARCH_URL: http://{{ansible_host}}:9200

@@ -1,0 +1,18 @@
+# Example usage:  ansible-playbook deploy-bargainbetter-ui.yml -e 'hosts=do2'
+---
+  - name: deploy docker application container
+    hosts: '{{hosts}}'
+    tasks:
+    - name: Install docker-py as needed by Ansible
+      pip: name=docker-py
+      become: true
+
+     - name: pull and start container
+       docker:
+         name: bargainbetter-ui
+         image: chrisjstevenson/bargainbetter
+         state: reloaded
+         pull: always
+         restart_policy: always
+         ports:
+           - "9002:9002"   #host_port:container_port

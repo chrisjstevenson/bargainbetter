@@ -1,0 +1,6 @@
+#ansible-playbook elasticsearch.yml -e 'group=elastic-lower'
+- name: install an elasticsearch cluster on a group
+  hosts: '{{group}}'
+  roles:
+    - elasticsearch
+    - kibana

@@ -1,0 +1,73 @@
+#set up the config folder per our volume mounts below
+- name: ensure es config folder exists on host
+  file: path=/opt/data/elasticsearch/config state=directory
+
+- name: ensure scripts folder exists on host (required by ES)
+  file: path=/opt/data/elasticsearch/config/scripts state=directory
+
+- name: trasnform and copy elasticsearch config template out to host
+  template: src=elasticsearch.yml dest=/opt/data/elasticsearch/config
+
+- name: copy logging config out to host
+  copy: src=logging.yml dest=/opt/data/elasticsearch/config
+
+- name: create a place for data to live on the host
+  file: path=/opt/data/elasticsearch/data state=directory
+
+- name: deploy elasticsearch to host
+  include: tasks/build-dockerfile-to-host.yml image=rdr-elasticsearch
+
+- name: stop existing elasticsearch container
+  raw: sudo docker stop elasticsearch
+  ignore_errors: true
+
+- name: remove existing elasticsearch container
+  raw: sudo docker rm elasticsearch
+  ignore_errors: true
+
+- name: start elasticsearch container
+  raw: sudo docker run \
+         --detach=true \
+         --publish=9200:9200 \
+         --publish=9300:9300 \
+         --volume=/opt/data/elasticsearch/config:/usr/share/elasticsearch/config \
+         --volume=/opt/data/elasticsearch/data:/usr/share/elasticsearch/data \
+         --restart=always \
+         --name=elasticsearch \
+         --env=ES_HEAP_SIZE={{ansible_memtotal_mb // 2}}m \
+         rdr-elasticsearch
+
+- name: Waiting for ElasticSearch app port to spin up
+  wait_for: host={{ansible_host}} port=9200
+
+- name: Check cluster node count
+  uri: url="http://{{ansible_host}}:9200/_cluster/health" return_content=yes
+  register: es_check_response
+
+- name: Fail cluster node count is wrong
+  fail: msg="Cluster node count of {{es_check_response.json.number_of_nodes}} vs 4 expected"
+  when: es_check_response.json.number_of_nodes != 4
+
+
+#not working for now, ugh
+#- block:
+#    - copy: src=../../scripts/appHealthCheck.js dest=~/.node/appHealthCheck.js
+#      run_once: true
+#    - set_fact: ansible_shell_executable='/usr/bin/node /home/bby-s-o9e-ops/.node/appHealthCheck.js'
+#
+#    - name: create and start the elasticsearch containers
+#      sudo: true
+#      docker:
+#        image: rdr-elasticsearch
+#        name: elasticsearch
+#        state: reloaded
+#        restart_policy: always
+#        ports:
+#          - "9200:9200"
+#          - "9300:9300"
+#        volumes:
+#          - /opt/data/elasticsearch/config:/usr/share/elasticsearch/config
+#          - /opt/data/elasticsearch/data:/usr/share/elasticsearch/data
+#  always:
+#    - file: path=~/.node/appHealthCheck.js state=absent
+#      run_once: true

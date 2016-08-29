@@ -1,0 +1,10 @@
+cluster.name: {{ENVIRONMENT_NAME}}
+#for pretty display in ES tooling
+node.name: {{ansible_hostname}}
+#required exactly for the cluster to work
+network.bind_host: 0.0.0.0
+network.publish_host: {{ansible_ssh_host}}
+discovery.zen.ping.multicast.enabled: false
+discovery.zen.ping.unicast.hosts: {{groups['elastic-' + ENVIRONMENT_NAME] | join(',')}}
+#the path that docker elasticsearch container prefers its data
+path.data: /usr/share/elasticsearch/data
