@@ -1,20 +1,15 @@
 sudo: required
 
 services:
-  - docker
+- docker
 
 language: node_js
+
 node_js:
-  - "5"
-
-#after_success:
-#  - docker build -t chrisjstevenson/bargainbetter .
-#  - docker run -p 9002:9002 -d chrisjstevenson/bargainbetter
-#  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-#  - docker push chrisjstevenson/bargainbetter
-
+- '5'
 
 notifications:
-  slack: bargainbetter:"$SLACK_TOKEN"
   on_sucess: always
   on_failure: always
+  slack:
+    secure: FRIN0T2X2Tfsexyh3KMf11KzC1rqZ+jQkcgIRn//IIO+gBiTR1vkpb0LK+CacihzUnEdwyC0ePWCq+b1b/StzRjXYTGqDcj3U0SsRjZKmoGFtzns/9qyl5H9AEunc+rMcTrrb3cf5Do74yPMWr+9rSSmG9X8w0jCAGoPbG5HCiz+omUfXInm8d3ndK5vHQ8AUuESSoLvNbEf7gukFHwq9ECg2GkvK7G3B1k2sjM9AO8tFQinzniUbeIwXTsfQsTV0+20EBlDmayrIHM2OWZOilxn6JaU1DCJ1AgTtpKa0IWULdOQ6IekJShAdOXD83619t249Z/qW5EFv+K/rHJRHwv7q0phaMhTtvtxNldldgu4teP5UHG2ge2PE6D5xt9+b8IuR3W0Z897mbGbBk/qizt998AA9ZLzjAchxO++N5u54xa88+K9a7YJKLFPD0njYFU0KS7hvJiLz3P/TwuZGnrqb9thbSE+gDSyPKqpzntYt17Y8Mbp7Oz+K2gRiETuubSP3DxH39l2gQ8Zh4R/dfnMDsY/9gBecC3mtQIy34dnrocEzp2RV54RnYodbb/VqQsKzSM7TswaeQARAn5rucLmlGYKqsUowxa43xg5vp4apTlwctySOK2nPjEWLd1eogZW1B94EPBb1j5RrwdbdQJWlQrN9WYMAAVHoC/J5U8=
