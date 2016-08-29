@@ -125,10 +125,13 @@ input {
     padding: 30px;
 }
 
-
 /*
  * Header
  */
+.masthead {
+    z-index: 500; /* bring it front */
+}
+
 .masthead-brand {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -251,6 +254,11 @@ input {
     padding-bottom: 24px;
 }
 
+.logo {
+    float: left;
+    width: 300px;
+    margin-left: 10px;
+}
 
 
 /* ---------------  NEW PROFILE --------------------- */
@@ -260,7 +268,7 @@ input {
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
 
-.registration {
+body {
     color: #5a5a5a;
 }
 
@@ -291,15 +299,17 @@ input {
 }
 
 
-/* CUSTOMIZE THE CAROUSEL
+
+
+/* Top-Section (carousel)
 -------------------------------------------------- */
 
 /* Carousel base class */
 .carousel {
     height: 500px;
     margin-bottom: 60px;
-    background: url('./images/streets.jpeg') no-repeat center fixed;
-    background-size: cover;
+    background-color: #5a5a5a;
+
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {

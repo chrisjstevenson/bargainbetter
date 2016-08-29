@@ -1,37 +1,63 @@
 <% include header %>
 
+<body class="registration">
 
-<body class="coverpage">
-<div class="site-wrapper">
-    <div class="site-wrapper-inner">
+<div class="carousel">
 
-        <div class="masthead clearfix">
-            <div class="inner">
-                <h3 class="masthead-brand">BarginBetter</h3>
-                <nav>
-                    <ul class="nav masthead-nav">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Newsletter</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-
-
+    <div class="masthead clearfix">
+        <a href="/" class="navbar-left"><img class="logo" src="/assets/images/ok_sign_wide_layout.png"></a>
         <div class="inner">
-            <h1 class="cover-heading">Plug in your network. Transact with trust.</h1>
-            <p class="lead">Bargain Better unites buyers with sellers using social connections.</p>
-            <div class="lead">
-                <a href="/oauth/linkedin" class="btn btn-block btn-social btn-linkedin col-centered">
-                    <span class="fa fa-linkedin"></span>
-                    Continue with LinkedIn
-                </a>
+
+            <nav>
+                <ul class="nav masthead-nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#about">How it works</a></li>
+                    <li><a href="#/blog">Blog</a></li>
+                    <li><a href="#newsletter">Newsletter</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>No more dark alleys or strange rendevous.</h1>
+                    <p>Find people that you know. Buy, Sell, Network.</p>
+                    <p><a href="/oauth/linkedin" class="btn btn-block btn-social btn-linkedin col-centered">
+                            <span class="fa fa-linkedin"></span>
+                            Continue with LinkedIn
+                        </a></p>
+                </div>
             </div>
         </div>
     </div>
-</div>  
+</div>
 
-<script src="/node_modules/jquery/dist/jquery.min.js"></script>
+
+<div class="container marketing">
+    <div class="row">
+        <div class="col-lg-4">
+            <i class="fa fa-camera fa-5" aria-hidden="true"></i>
+            <h2>Post</h2>
+            <p>Buy or Sell by posting to the exchange. Provide only your name, a picture of the item, and a price. Don't forget shipping fees.</p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+            <i class="fa fa-comments-o fa-5" aria-hidden="true"></i>
+            <h2>Negotiate</h2>
+            <p>Negotiate by clicking on the seller or buyer link in the newsletter. Exchange shipping information or exchange meeting point if you are meeting in person.</p>
+        </div>
+        <div class="col-lg-4">
+            <i class="fa fa-credit-card fa-5" aria-hidden="true"></i>
+            <h2>Sell</h2>
+            <p>Exchange funds using Venmo or Paypal. Provide feedback on the buyer and the experience.</p>
+        </div>
+    </div>
+</div>
+
+
+ <script src="/node_modules/jquery/dist/jquery.min.js"></script>
 </body>
 </html>
