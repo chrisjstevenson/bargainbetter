@@ -7,12 +7,12 @@
       pip: name=docker-py
       become: true
 
-     - name: pull and start container
-       docker:
-         name: bargainbetter-ui
-         image: chrisjstevenson/bargainbetter
-         state: reloaded
-         pull: always
-         restart_policy: always
-         ports:
-           - "9002:9002"   #host_port:container_port
+    - name: pull and start container
+      docker:
+        name: bargainbetter-ui
+        image: chrisjstevenson/bargainbetter
+        state: reloaded
+        pull: always
+        restart_policy: always
+        ports:
+          - "9002:9002"   #host_port:container_port

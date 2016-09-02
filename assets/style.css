@@ -97,19 +97,20 @@ input {
     font-weight: bold;
     color: #000; /* IE8 proofing */
     color: rgba(255,255,255,1);
-    border-bottom: 2px solid transparent;
+    border-bottom: 5px solid transparent;
+    padding-bottom: 5px;
 }
 .masthead-nav > li > a:hover,
 .masthead-nav > li > a:focus {
     background-color: transparent;
-    border-bottom-color: #a9a9a9;
+    border-bottom-color: #27A8E0;
     border-bottom-color: rgba(255,255,255,.25);
 }
 .masthead-nav > .active > a,
 .masthead-nav > .active > a:hover,
 .masthead-nav > .active > a:focus {
     color: #fff;
-    border-bottom-color: #a9a9a9;
+    border-bottom-color: #27A8E0;
 }
 
 @media (min-width: 768px) {
@@ -318,7 +319,8 @@ p.lead {
 
 /* big ass awesome fonts */
 .fa-5 {
-    font-size: 128pt !important;
+    font-size: 80pt !important;
+    color: #27A8E0;
 }
 
 /* privacy policy */
