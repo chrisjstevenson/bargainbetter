@@ -9,7 +9,7 @@ mongoose.connect('mongodb://localhost/bargainbetter');
 const testableEmail = 'test@bargainbetter.com';
 
 describe('userService >', () => {
-    
+
     it('should register a new user', () => {
         var obj = staticProfile;
         obj.emailAddress = 'new_user@bargainbetter.com';
