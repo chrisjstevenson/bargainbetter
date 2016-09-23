@@ -11,7 +11,7 @@ node_js:
 
 before_script:
   - sleep 15
-  - mongo bargainbetter --eval 'db.addUser("travis", "test");'
+  - mongo bargainbetter --eval 'db.createCollection("users");'
 
 after_success:
   - docker build -t chrisjstevenson/bargainbetter .
