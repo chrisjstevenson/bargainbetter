@@ -2,11 +2,16 @@ sudo: required
 
 services:
   - docker
+  - mongodb
 
 language: node_js
 
 node_js:
   - '5'
+
+before_script:
+  - sleep 15
+  - mongo bargainbetter --eval 'db.addUser("travis", "test");'
 
 after_success:
   - docker build -t chrisjstevenson/bargainbetter .
