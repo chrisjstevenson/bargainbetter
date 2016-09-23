@@ -3,19 +3,26 @@
   - name: deploy docker application container
     hosts: '{{hosts}}'
     tasks:
-    - name: Install docker-py as needed by Ansible
-      pip: name=docker-py
-      become: true
+
+    - name: Install pip
+      easy_install:
+        name=pip
+
+    - name: Install docker-py
+      pip:
+        name=docker-py
+        state=present
+        version=1.9.0
 
     - name: pull and start mongodb container
       docker_container:
         name: mongodb
         image: mongo:latest
         restart_policy: always
-        ulimits:
-          mlock: -1
-        capabilities:
-          - IPC_LOCK
+#        ulimits:
+#          - "mlock: -1"
+#        capabilities:
+#          - IPC_LOCK
         ports:
          - "27017:27017"
         volumes:

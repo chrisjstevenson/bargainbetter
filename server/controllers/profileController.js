@@ -10,7 +10,8 @@ profileContoller.index = function register(req, res) {
         .then(basicProfile => {
 
             // register the user, if they don't exist already
-            return userService.update(basicProfile);
+            userService.update(basicProfile); //fire & forget
+            return basicProfile;
         })
         .then(user => {
 
