@@ -1,0 +1,11 @@
+mongodb:
+  ports:
+    - "27017:27017"
+  volumes:
+    - /opt/docker/volumes/mongodb:/data/db
+  ulimits:
+    mlock: -1
+  cap_add:
+    - IPC_LOCK
+  restart: always
+  image: mongo:3.3

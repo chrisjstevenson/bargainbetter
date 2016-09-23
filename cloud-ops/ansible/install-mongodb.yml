@@ -7,13 +7,12 @@
       pip: name=docker-py
       become: true
 
-      # need up update to latest docker_container
-    - name: pull and start container
-      docker:
-        name: bargainbetter-ui
-        image: chrisjstevenson/bargainbetter
-        state: reloaded
-        pull: always
+    - name: pull and start mongodb container
+      docker_container:
+        name: mongodb
+        image: mongo:latest
         restart_policy: always
         ports:
-          - "9002:9002"   #host_port:container_port
+         - "27017:27017"
+        volumes:
+         - /opt/docker/volumes/mongodb:/data/db
