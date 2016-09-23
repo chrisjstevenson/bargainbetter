@@ -1,23 +1,26 @@
 var profileContoller = module.exports;
 var linkedInService = require('../services/linkedInService');
 var mailService = require('../services/mailService');
+var userService = require('../services/userService');
+var User = require('../models/User');
 var request = require('request');
-
-//profileContoller.index = function index(req, res) {
-//    res.render('profile', { token: req.query.t });
-//};
 
 profileContoller.index = function register(req, res) {
     linkedInService.getProfile(req.query.t)
         .then(basicProfile => {
 
+            // register the user, if they don't exist already
+            return userService.update(basicProfile);
+        })
+        .then(user => {
+
             // create the subscriber object
             subscriber = {
-                "email_address": basicProfile.emailAddress,
+                "email_address": user.emailAddress,
                 "status": "subscribed",
                 "merge_fields": {
-                    "FNAME": basicProfile.firstName,
-                    "LNAME": basicProfile.lastName
+                    "FNAME": user.firstName,
+                    "LNAME": user.lastName
                 }
             };
 

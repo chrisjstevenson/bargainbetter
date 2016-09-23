@@ -8,4 +8,10 @@ config.express = {
     ip: '127.0.0.1'
 };
 
+config.db = {
+    host: 'localhost',
+    name: 'bargainbetter',
+    port: '27017'
+};
+
 config.callBackUrl = 'http://www.bargainbetter.com/oauth/linkedin/callback';

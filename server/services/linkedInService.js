@@ -1,5 +1,3 @@
-var Guid = require('guid');
-
 module.exports.getProfile = function getProfile(access_token)
 {
     return new Promise(function (resolve, reject) {

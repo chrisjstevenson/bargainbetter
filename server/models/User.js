@@ -1,7 +1,6 @@
 var mongoose = require('mongoose');
-
 var userSchema = new mongoose.Schema({
-    userId: {
+    id: {
         type: String
     },
     linkedInId: {
@@ -36,12 +35,12 @@ var userSchema = new mongoose.Schema({
         }
     },
     numberOfConnections: {
-        type: Integer
+        type: Number
     },
     pictureUrl: {
         type: String
     },
-    linkedInPublicProfile: {
+    linkedInPublicProfileUrl: {
         type: String
     }
 });
