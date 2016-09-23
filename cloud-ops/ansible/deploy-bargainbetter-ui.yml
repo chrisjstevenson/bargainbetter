@@ -15,5 +15,7 @@
         state: reloaded
         pull: always
         restart_policy: always
+        links:
+         - "mongodb:mongodb"
         ports:
           - "9002:9002"   #host_port:container_port

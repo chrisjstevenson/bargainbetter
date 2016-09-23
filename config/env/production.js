@@ -9,7 +9,7 @@ config.express = {
 };
 
 config.db = {
-    host: 'localhost',
+    host: 'mongodb',
     name: 'bargainbetter',
     port: '27017'
 };

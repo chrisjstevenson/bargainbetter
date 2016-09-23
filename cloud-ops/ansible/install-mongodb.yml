@@ -12,6 +12,10 @@
         name: mongodb
         image: mongo:latest
         restart_policy: always
+        ulimits:
+          mlock: -1
+        capabilities:
+          - IPC_LOCK
         ports:
          - "27017:27017"
         volumes:
