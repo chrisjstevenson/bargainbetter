@@ -44,9 +44,9 @@ describe('BargainBetter', function() {
                 .click('.btn')
                 .pause(1000);
 
-        client.setValue('input[name="session_key"]', ['chris.j.stevenson@gmail.com']);
+        client.setValue('input[name="session_key"]', ['***']);
         client
-            .setValue('input[name="session_password"', ['Hokies05'])
+            .setValue('input[name="session_password"', ['***'])
             .click('input[name="authorize"]')
             .pause(2000)
             .assert.containsText('h1', "Thank you for signing up!")
