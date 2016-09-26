@@ -30,7 +30,8 @@
     "start": "node app.js",
     "test": "npm run integration-tests && npm run ui-tests",
     "integration-tests": "node node_modules/mocha/bin/mocha \"server/**/*.intspec.js\"",
-    "ui-tests": "node node_modules/gulp/bin/gulp.js ui-tests"
+    "ui-tests": "cd e2e && ../node_modules/.bin/nightwatch",
+    "postinstall": "node e2e/nightwatch.conf.js"
   },
   "devDependencies": {
     "expect": "^1.20.2",
@@ -38,6 +39,8 @@
     "gulp-mocha": "^3.0.1",
     "gulp-protractor": "^3.0.0",
     "mocha": "^3.0.1",
-    "portfinder": "^1.0.7"
+    "nightwatch": "^0.9.8",
+    "portfinder": "^1.0.7",
+    "selenium-download": "^2.0.6"
   }
 }
