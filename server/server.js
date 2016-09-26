@@ -24,7 +24,8 @@ module.exports.run = function (cb) {
 Localhost: ${chalk.magenta(`http://localhost:${config.express.port}`)}
       LAN: ${chalk.magenta(`http://${ip.address()}:${config.express.port}`)}${divider}`)
         })
-        .catch((error) => console.log(chalk.red('server - Error while starting', error)));
+        .catch((error) => console.log(chalk.red('server - Error while starting', error)))
+        .finally(cb);
 };
 
 
