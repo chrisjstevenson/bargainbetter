@@ -6,4 +6,8 @@ viewController.index = function (req, res) {
 
 viewController.privacy = function (req, res) {
     res.render('privacy');
-}
+};
+
+viewController.terms = function (req, res) {
+    res.render('terms');
+};
