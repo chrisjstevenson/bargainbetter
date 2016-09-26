@@ -28,7 +28,7 @@
   },
   "scripts": {
     "start": "node app.js",
-    "test": "npm run integration-tests && npm run ui-tests",
+    "test": "npm run integration-tests",
     "integration-tests": "node node_modules/mocha/bin/mocha \"server/**/*.intspec.js\"",
     "ui-tests": "cd e2e && ../node_modules/.bin/nightwatch",
     "postinstall": "node e2e/nightwatch.conf.js"
