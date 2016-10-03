@@ -23,7 +23,7 @@
     "node-linkedin": "^0.5.3",
     "node-uuid": "^1.4.7",
     "request": "^2.74.0",
-    "serve-favicon": "~2.3.0",
+    "serve-favicon": "^2.3.0",
     "winston": "^2.1.1"
   },
   "scripts": {
