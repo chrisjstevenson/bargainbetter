@@ -182,9 +182,8 @@ input {
 
 .navbar-logo {
     float: left;
-    max-width: 20%;
-    height: auto;
     margin-left: 10px;
+    max-width: 20%;
 }
 
 
