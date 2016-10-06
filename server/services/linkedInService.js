@@ -1,3 +1,5 @@
+const Linkedin = require('node-linkedin')(process.env.LINKEDIN_ID, process.env.LINKEDIN_SECRET);
+
 module.exports.getProfile = function getProfile(access_token)
 {
     return new Promise(function (resolve, reject) {

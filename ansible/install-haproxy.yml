@@ -1,5 +1,5 @@
 ---
-#EXAMPLE: ansible-playbook install-haproxy.yml -e 'hosts=do1'
+#EXAMPLE: ansible-playbook install-haproxy.yml -e 'hosts=do1' -> haproxy installed as service on do1
  - name: Install a particular version of haproxy to specified hosts
    hosts: '{{hosts}}'
    vars:

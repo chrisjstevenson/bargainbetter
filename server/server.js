@@ -1,30 +1,26 @@
+global._ = require('lodash');
+global.Promise = require('bluebird');
 global.log = require('../config/log');
-var Promise = global.Promise = require('bluebird');
-var app = Promise.promisifyAll(require('./express'));
-var mongoose = require('mongoose');
-mongoose.Promise = global.Promise;
-Promise.promisifyAll(require('request'));
-global.Linkedin = require('node-linkedin')('78m6kmzfd6yoqf', 'lqfcxRk3d4Jpz3dN');
-
-
-var config = require('../config/config');
+const config = require('../config/config');
 const chalk = require('chalk');
-const ip = require('ip');
-const divider = chalk.gray('\n-----------------------------------');
+const dotenv = require('dotenv');
+const mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
 
-module.exports.run = function (cb) {
+dotenv.load({ path: '.env' });
 
-    console.log('server - Starting "' + config.environment + '"');
+module.exports.run = (cb) => {
 
     connectToMongoose()
-        .then(app.listenAsync(config.express.port))
-        .then(console.log(`Server started ${chalk.green('✓')}`))
         .then(() => {
-            console.log(`${chalk.bold('Access URLs:')}${divider}
-Localhost: ${chalk.magenta(`http://localhost:${config.express.port}`)}
-      LAN: ${chalk.magenta(`http://${ip.address()}:${config.express.port}`)}${divider}`)
+            var app = Promise.promisifyAll(require('./express'));
+            var server = Promise.promisifyAll(require('http').Server(app));
+
+            app.listenAsync(app.get('port'));
+
+            log.info(`${chalk.green('✓')} Express server listening on port ${app.get('port')} in ${app.get('env')} mode.`);
         })
-        .catch((error) => console.log(chalk.red('server - Error while starting', error)))
+        .catch((error) => log.error(chalk.red('server - Error while starting', error)))
         .finally(cb);
 };
 
@@ -45,8 +41,6 @@ function connectToMongoose() {
         }
     };
 
-    var url = `mongodb://${config.db.host}:${config.db.port}/${config.db.name}`;
-
     var db = mongoose.connection;
 
     db.on('reconnected', function () {
@@ -56,8 +50,8 @@ function connectToMongoose() {
         log.warn('MongoDB disconnected!');
     });
 
-    return mongoose.connect(url, options)
+    return mongoose.connect(process.env.MONGODB_URI, options)
         .then(() => {
-            log.info(`connected to ${url}`);
+            log.info(`${chalk.green('✓')} Connected to ${process.env.MONGODB_URI}`);
         })
 }

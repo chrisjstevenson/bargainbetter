@@ -8,6 +8,7 @@ app.use('/public', express.static('public'));
 app.use('/node_modules', express.static('node_modules'));
 app.use(favicon('./public/images/favicon.ico'));
 
+app.set('port', process.env.PORT || 3000)
 app.set('view engine', 'ejs');
 app.set('views', process.cwd() + '/public/views');
 app.use(express.static('app'));

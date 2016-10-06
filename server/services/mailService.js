@@ -1,5 +1,4 @@
-var request = require('request');
-var _ = require('lodash');
+var request = Promise.promisifyAll(require('request'));
 
 var options = {
     strictSSL: false,
