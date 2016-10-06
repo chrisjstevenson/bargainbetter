@@ -1,0 +1,18 @@
+.masthead.clearfix
+   a(href='/')
+      img(src="/public/images/ok_sign_wide_layout_bold_tag.png", class="navbar-logo")
+   .inner.navbar-right
+     nav
+       ul.nav.masthead-nav
+         li(class=(title == 'Home') ? 'active' : undefined)
+           a(href='/') Home
+         li(class=(title == 'How it works') ? 'active' : undefined)
+           a(href='#howitworks') How it works
+         li(class=(title == 'About') ? 'active' : undefined)
+           a(href='#about') About
+         li(class=(title == 'Blog') ? 'active' : undefined)
+           a(href='http://bargainbetter.blogspot.com/') Blog
+         li(class=(title == 'Login') ? 'active' : undefined)
+           a(href='/login') Login
+         li(class=(title == 'Create Account') ? 'active' : undefined)
+           a(href='#') Create Account

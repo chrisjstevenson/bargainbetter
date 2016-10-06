@@ -1,0 +1,63 @@
+extends layout
+
+block content
+  .carousel
+    .carousel-inner(role='listbox')
+      .item.active
+        .container
+          .carousel-caption
+            h1 No more dark alleys or strange rendevous.
+            p Your network. Safer sales. No worries.
+            p
+              a.btn.btn-block.btn-social.btn-linkedin.col-centered(href='/oauth/linkedin')
+                span.fa.fa-linkedin
+                |                             Continue with LinkedIn
+  .container.marketing
+    .row.non-featurette
+      .col-lg-4
+        i.fa.fa-camera.fa-5(aria-hidden='true')
+        h2 Discover
+        p
+          | Buy or Sell by posting to the exchange. Provide only your name, a picture of the item, and a price. Don't forget shipping fees.
+      .col-lg-4
+        i.fa.fa-comments-o.fa-5(aria-hidden='true')
+        h2 Connect
+        p
+          | Negotiate by clicking on the seller or buyer link in the newsletter. Exchange shipping information or exchange meeting point if you are meeting in person.
+      .col-lg-4
+        i.fa.fa-credit-card.fa-5(aria-hidden='true')
+        h2 Shop
+        p
+          | Exchange funds using Venmo or Paypal. Provide feedback on the buyer and the experience.
+    hr.featurette-divider
+    a(name='howitworks')
+    .row.featurette
+      .col-md-7.col-md-push-5
+        h2.featurette-heading
+          | How it works.
+          span.text-muted Simple and easy to get started.
+        p.lead
+          | Sign up using your LinkedIn account. Buy or Sell by posting to the exchange. Provide only your name, a picture of the item, and a price. Don't forget shipping fees.
+        p.lead
+          | Negotiate by clicking on the seller or buyer link in the newsletter. Exchange shipping information or exchange meeting point if you are meeting in person.
+        p.lead
+          | Exchange funds with Venmo or Paypal. Provide feedback on the buyer and the experience.
+    hr.featurette-divider
+    .row.featurette
+      a(name='about')
+      .col-md-7
+        h2.featurette-heading
+          | BargainBetter.
+          span.text-muted Learn more about us.
+        p.lead
+          | BargainBetter is a startup started amongst friends looking to advance the classified ads e-commerce
+          | space through a platform that uses professional identities and networks to create trust in the
+          | marketplace.
+        p.lead
+          | Other platforms that help communities connect and transact are still prone to scams and precarious in
+          | person “meetups” with total strangers. Very little has been done to solve the problem of trust.
+        p.lead
+          | While we are working on our platform, we will have a weekly newsletter to help you buy and sell using
+          | your existing networks. We want users to post things they are looking for and to also post things they
+          | are looking to buy. Our plan is to grow, build and develop the platform in a way that is important to you.
+    hr.featurette-divider

@@ -27,6 +27,9 @@ h4 {
     color: #333;
 }
 
+.container {
+    margin-top: 100px;
+}
 
 footer > a,
 footer > a:focus,
@@ -101,9 +104,10 @@ input {
     padding-bottom: 5px;
 }
 .masthead-nav > li > a:hover,
+.masthead-nav > li > a.active,
 .masthead-nav > li > a:focus {
     background-color: transparent;
-    border-bottom-color: #27A8E0;
+    border-bottom-color: #27A8E0 !important;
     border-bottom-color: rgba(255,255,255,.25);
 }
 .masthead-nav > .active > a,
@@ -183,7 +187,7 @@ input {
 .navbar-logo {
     float: left;
     margin-left: 10px;
-    max-width: 20%;
+    max-width: 300px;
 }
 
 
@@ -330,6 +334,11 @@ p.lead {
 }
 
 .btn-linkedin {
+    width: 222px;
+    font-weight: bold;
+}
+
+.btn-facebook {
     width: 222px;
     font-weight: bold;
 }
