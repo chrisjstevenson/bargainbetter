@@ -6,7 +6,7 @@ var User = require('../models/User');
 userService.update = function(userData) {
     var obj =  {
         bargainBetterId: uuid.v1(),
-        emailAddress: userData.emailAddress,
+        email: userData.emailAddress,
         firstName: userData.firstName,
         lastName: userData.lastName,
         formattedName: userData.formattedName,

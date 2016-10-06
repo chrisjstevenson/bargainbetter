@@ -29,8 +29,8 @@
   },
   "scripts": {
     "start": "node app.js",
-    "test": "npm run unit-tests && npm run integration-tests",
-    "unit-tests": "node node_modules/mocha/bin/mocha \"server/**/*.spec.js\"",
+    "test": "npm run unit-tests",
+    "unit-tests": "node node_modules/mocha/bin/mocha --reporter spec --timeout 5000 \"server/**/*.spec.js\"",
     "integration-tests": "node node_modules/mocha/bin/mocha \"server/**/*.intspec.js\"",
     "ui-tests": "cd e2e && ../node_modules/.bin/nightwatch",
     "postinstall": "node e2e/nightwatch.conf.js"

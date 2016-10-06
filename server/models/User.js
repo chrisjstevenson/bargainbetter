@@ -1,51 +1,35 @@
-var mongoose = require('mongoose');
-var userSchema = new mongoose.Schema({
-    id: {
-        type: String
-    },
-    linkedInId: {
-        type: String
-    },
-    emailAddress: {
-        type: String
-    },
-    firstName: {
-        type: String
-    },
-    lastName: {
-        type: String
-    },
-    formattedName: {
-        type: String
-    },
-    headline: {
-        type: String
-    },
-    industry: {
-        type: String
-    },
-    location: {
-        country: {
-            code: {
-                type: String
-            }
-        },
-        name: {
-            type: String
-        }
-    },
-    numberOfConnections: {
-        type: Number
-    },
-    pictureUrl: {
-        type: String
-    },
-    linkedInPublicProfileUrl: {
-        type: String
-    }
-});
+const mongoose = require('mongoose');
 
-module.exports = mongoose.model('User', userSchema);
+const userSchema = new mongoose.Schema({
+    email: { type: String, unique: true },
+    password: String,
+    passwordResetToken: String,
+    passwordResetExpires: Date,
+
+    linkedin: String,
+    facebook: String,
+    twitter: String,
+    google: String,
+
+    profile: {
+        name: String,  // formattedName
+        firstName: String,
+        lastName: String,
+        headline: String, // headline
+        industry: String, // industry
+        location: {
+            country: {
+                code: String
+            },
+            name: String
+        },
+        picture: String
+    }
+}, { timestamps: true });
+
+const User = mongoose.model('User', userSchema);
+
+module.exports = User;
 
 
 
