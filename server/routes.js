@@ -12,6 +12,7 @@ module.exports = function (app) {
     //app.get('/oauth/linkedin', authController.authorize);
     //app.get('/oauth/linkedin/callback', authController.authorizationCallback);
     app.get('/login', userController.getLogin);
+    app.get('/account/profile', userController.getAccount);
 
     app.use(function(req, res, next) {
         res.redirect('/');

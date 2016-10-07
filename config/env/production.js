@@ -1,17 +1,19 @@
-var config = module.exports;
+exports.environment = 'production';
 
-config.environment = 'production';
-
-config.express = {
+exports.express = {
     hostName: 'localhost',
     port: 9002,
     ip: '127.0.0.1'
 };
 
-config.db = {
-    host: 'mongodb',
+exports.sessionSecret = 'soverysecret!@@!';
+
+exports.db = {
+    host: 'mongodb', // this is the hostname of the mongodb container
     name: 'bargainbetter',
     port: '27017'
 };
 
-config.callBackUrl = 'http://www.bargainbetter.com/oauth/linkedin/callback';
+exports.linkedInCallBackUrl = 'http://www.bargainbetter.com/oauth/linkedin/callback';
+exports.linkedInId = '78m6kmzfd6yoqf';
+exports.linkedInSecret = 'lqfcxRk3d4Jpz3dN';

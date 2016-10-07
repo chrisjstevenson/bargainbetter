@@ -7,15 +7,16 @@
       pip: name=docker-py
       become: true
 
-      # need up update to latest docker_container
     - name: pull and start container
-      docker:
-        name: bargainbetter-ui
+      docker_container:
+        name: bargainbetter
         image: chrisjstevenson/bargainbetter
-        state: reloaded
-        pull: always
+        state: started
+        restart: yes
         restart_policy: always
         links:
          - "mongodb:mongodb"
         ports:
-          - "9002:9002"   #host_port:container_port
+          - "3000:3000"   #host_port:container_port
+        env:
+          NODE_ENV: "{{ hostvars[inventory_hostname].environment_name }}"

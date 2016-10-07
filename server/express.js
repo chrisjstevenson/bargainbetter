@@ -14,14 +14,14 @@ app.use(favicon('./public/images/favicon.ico'));
 app.use(session({
     resave: true,
     saveUninitialized: true,
-    secret: process.env.SESSION_SECRET,
+    secret: config.sessionSecret,
     store: new MongoStore({
-        url: process.env.MONGODB_URI,
+        url: `mongodb://${config.db.host}:${config.db.port}/${config.db.name}`,
         autoReconnect: true
     })
 }));
 
-app.set('port', process.env.PORT || 3000)
+app.set('port', process.env.PORT || 3000);
 app.set('view engine', 'pug');
 app.set('views', process.cwd() + '/views');
 app.use(express.static('app'));

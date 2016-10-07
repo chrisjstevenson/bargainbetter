@@ -1,4 +1,4 @@
-exports.environment = 'development';
+exports.environment = 'beta';
 
 exports.express = {
     hostName: 'localhost',
@@ -9,11 +9,12 @@ exports.express = {
 exports.sessionSecret = 'soverysecret!@@!';
 
 exports.db = {
-    host: 'localhost',
+    host: 'mongodb', // this is the hostname of the mongodb container
     name: 'bargainbetter',
     port: '27017'
 };
 
-exports.linkedInCallBackUrl = 'http://localhost:3000/oauth/linkedin/callback';
+exports.linkedInCallBackUrl = 'http://beta.bargainbetter.com/oauth/linkedin/callback';
 exports.linkedInId = '78m6kmzfd6yoqf';
 exports.linkedInSecret = 'lqfcxRk3d4Jpz3dN';
+

@@ -1,10 +1,10 @@
 var authController = module.exports;
 var config = require('../../config/config');
 var scope = ['r_basicprofile', 'r_emailaddress'];
-const Linkedin = require('node-linkedin')(process.env.LINKEDIN_ID, process.env.LINKEDIN_SECRET);
+const Linkedin = require('node-linkedin')(config.linkedInId, config.linkedInSecret);
 
 authController.authorize = function (req, res) {
-    Linkedin.auth.setCallback(process.env.LINKEDIN_CALLBACK_URL);
+    Linkedin.auth.setCallback(config.linkedInCallbackUrl);
     Linkedin.auth.authorize(res, scope);
 };
 

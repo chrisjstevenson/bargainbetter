@@ -1,15 +1,14 @@
 global._ = require('lodash');
 global.Promise = require('bluebird');
 global.log = require('../config/log');
-const config = require('../config/config');
+global.config = require('../config/config');
 const chalk = require('chalk');
-const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-dotenv.load({ path: '.env' });
-
 module.exports.run = (cb) => {
+
+    log.info('server - Starting "' + config.environment + '"');
 
     connectToMongoose()
         .then(() => {
@@ -41,6 +40,8 @@ function connectToMongoose() {
         }
     };
 
+    var url = `mongodb://${config.db.host}:${config.db.port}/${config.db.name}`;
+
     var db = mongoose.connection;
 
     db.on('reconnected', function () {
@@ -50,8 +51,8 @@ function connectToMongoose() {
         log.warn('MongoDB disconnected!');
     });
 
-    return mongoose.connect(process.env.MONGODB_URI, options)
+    return mongoose.connect(url, options)
         .then(() => {
-            log.info(`${chalk.green('✓')} Connected to ${process.env.MONGODB_URI}`);
+            log.info(`connected to ${url}`);
         })
 }
