@@ -6,7 +6,7 @@
   apt: name=haproxy state=present
 
 - name: Drop our custom haproxy config in the right spot after template transformation
-  sudo: true
+  become: true
   template:
     src: haproxy.cfg
     dest: /etc/haproxy/haproxy.cfg
@@ -34,7 +34,7 @@
     replace='ENABLED=1'
 
 - name: haproxy service enabled
-  sudo: true
+  become: true
   service: 
     name: haproxy 
     enabled: yes

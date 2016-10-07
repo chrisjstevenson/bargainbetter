@@ -11,6 +11,7 @@
       docker_container:
         name: bargainbetter
         image: chrisjstevenson/bargainbetter
+        pull: yes
         state: started
         restart: yes
         restart_policy: always
