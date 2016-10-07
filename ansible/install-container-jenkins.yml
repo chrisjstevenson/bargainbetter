@@ -1,0 +1,28 @@
+# Example usage:  ansible-playbook deploy-bargainbetter-ui.yml -e 'hosts=do2'
+---
+  - name: deploy docker application container
+    hosts: '{{hosts}}'
+    tasks:
+
+    - name: Install pip
+      easy_install:
+        name=pip
+
+    - name: Install docker-py
+      pip:
+        name=docker-py
+        state=present
+        version=1.9.0
+
+    - name: create jenkins home directory
+      file: path=/opt/jenkins state=directory mode=0777
+
+    - name: pull and start jenkins container
+      docker_container:
+        name: jenkins
+        image: jenkins:latest
+        restart_policy: always
+        ports:
+         - "49001:8080"
+        volumes:
+         - /opt/jenkins:/var/jenkins_home
