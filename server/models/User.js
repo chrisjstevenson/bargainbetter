@@ -10,6 +10,7 @@ const userSchema = new mongoose.Schema({
     facebook: String,
     twitter: String,
     google: String,
+    tokens: Array, // needed by passport
 
     profile: {
         name: String,  // formattedName
@@ -17,13 +18,9 @@ const userSchema = new mongoose.Schema({
         lastName: String,
         headline: String, // headline
         industry: String, // industry
-        location: {
-            country: {
-                code: String
-            },
-            name: String
-        },
-        picture: String
+        location: String,
+        picture: String,
+        website: String
     }
 }, { timestamps: true });
 
