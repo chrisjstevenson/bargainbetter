@@ -8,6 +8,11 @@ const MongoStore = require('connect-mongo')(session);
 const errorHandler = require('errorhandler');
 var flash = require('express-flash');
 
+app.set('port', process.env.PORT || 3000);
+app.set('view engine', 'pug');
+app.set('views', process.cwd() + '/views');
+app.use(express.static('app'));
+app.use(bodyParser.json());
 app.use('/app', express.static('app'));
 app.use('/public', express.static('public'));
 app.use('/node_modules', express.static('node_modules'));
@@ -24,12 +29,22 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
+app.use((req, res, next) => {
+    res.locals.user = req.user;
+    next();
+});
+app.use(function(req, res, next) {
+    // After successful login, redirect back to the intended page
+    if (!req.user &&
+        req.path !== '/login' &&
+        req.path !== '/signup' &&
+        !req.path.match(/^\/auth/) &&
+        !req.path.match(/\./)) {
+        req.session.returnTo = req.path;
+    }
+    next();
+});
 
-app.set('port', process.env.PORT || 3000);
-app.set('view engine', 'pug');
-app.set('views', process.cwd() + '/views');
-app.use(express.static('app'));
-app.use(bodyParser.json());
 
 require('./routes')(app);
 

@@ -4,15 +4,23 @@
    .inner.navbar-right
      nav
        ul.nav.masthead-nav
-         li(class=(title == 'Home') ? 'active' : undefined)
-           a(href='/') Home
-         li(class=(title == 'How it works') ? 'active' : undefined)
-           a(href='#howitworks') How it works
-         li(class=(title == 'About') ? 'active' : undefined)
-           a(href='#about') About
-         li(class=(title == 'Blog') ? 'active' : undefined)
-           a(href='http://bargainbetter.blogspot.com/') Blog
-         li(class=(title == 'Login') ? 'active' : undefined)
-           a(href='/login') Login
-         li(class=(title == 'Create Account') ? 'active' : undefined)
-           a(href='/signup') Create Account
+         if !user
+           li(class=(title == 'Login') ? 'active' : undefined)
+             a(href='/login') Login
+           li(class=(title == 'Create Account') ? 'active' : undefined)
+             a(href='/signup') Create Account
+         else
+           li.dropdown(class=(title == 'Account Management') ? 'active' : undefined)
+             a.dropdown-toggle(href='#', data-toggle='dropdown')
+               if user.profile.picture
+                 img(src=user.profile.picture)
+               else
+                 img(src=user.gravatar(60))
+               span= user.profile.name || user.email || user.id
+               i.caret
+             ul.dropdown-menu
+               li
+                 a(href='/account') My Account
+               li.divider
+               li
+                 a(href='/logout') Logout
