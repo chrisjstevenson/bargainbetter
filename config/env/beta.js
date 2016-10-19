@@ -14,7 +14,7 @@ exports.db = {
     port: '27017'
 };
 
-exports.linkedInCallBackUrl = 'http://beta.bargainbetter.com/oauth/linkedin/callback';
+exports.linkedInCallBackUrl = 'http://beta.bargainbetter.com/auth/linkedin/callback';
 exports.linkedInId = '78m6kmzfd6yoqf';
 exports.linkedInSecret = 'lqfcxRk3d4Jpz3dN';
 
