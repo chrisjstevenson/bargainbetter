@@ -45,6 +45,15 @@ exports.postLogin = (req, res, next) => {
 };
 
 /**
+ * GET /logout
+ * Log out.
+ */
+exports.logout = (req, res) => {
+    req.logout();
+    res.redirect('/');
+};
+
+/**
  * GET /signup
  * Signup page.
  */

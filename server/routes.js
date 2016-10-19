@@ -18,11 +18,12 @@ module.exports = function (app) {
     //app.get('/oauth/linkedin', authController.authorize);
     //app.get('/oauth/linkedin/callback', authController.authorizationCallback);
     app.get('/login', userController.getLogin);
+    app.get('/logout', userController.logout);
     app.get('/account/profile', passportConfig.isAuthenticated, userController.getAccount);
 
 
-    app.get('/auth/linkedin', passport.authenticate('linkedin', { state: 'SOME STATE' }));
-    app.get('/oauth/linkedin/callback', passport.authenticate('linkedin', { failureRedirect: '/login' }), (req, res) => {
+    app.get('/auth/linkedin', passport.authenticate('linkedin', { state: 'hhfyWEWJhKGQF' }));
+    app.get('/oauth/linkedin/callback', passport.authenticate('linkedin', { state: 'hhfyWEWJhKGQF', failureRedirect: '/login' }), (req, res) => {
         res.redirect(req.session.returnTo || '/');
     });
 };

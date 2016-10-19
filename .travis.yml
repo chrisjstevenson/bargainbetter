@@ -9,6 +9,12 @@ language: node_js
 node_js:
   - '5'
 
+before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq python-apt
+install:
+  - pip install ansible
+
 after_success:
   - docker build -t chrisjstevenson/bargainbetter .
   - docker run -p 9002:9002 -d chrisjstevenson/bargainbetter
