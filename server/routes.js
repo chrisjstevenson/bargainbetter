@@ -23,7 +23,7 @@ module.exports = function (app) {
 
 
     app.get('/auth/linkedin', passport.authenticate('linkedin', { state: 'hhfyWEWJhKGQF' }));
-    app.get('/oauth/linkedin/callback', passport.authenticate('linkedin', { state: 'hhfyWEWJhKGQF', failureRedirect: '/login' }), (req, res) => {
-        res.redirect(req.session.returnTo || '/');
+    app.get('/auth/linkedin/callback', passport.authenticate('linkedin', { failureRedirect: '/login' }), (req, res) => {
+        res.redirect('/');
     });
 };
