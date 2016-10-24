@@ -10,13 +10,9 @@ module.exports = function (app) {
     const passportConfig = require('../config/passport');
 
     app.get('/', homeController.index);
-    app.get('/signup', userController.getSignup);
-    app.post('/signup', userController.postSignup);
+    app.get('/signup', userController.getSignup); //only linkedin for now
     //app.get('/privacy', viewController.privacy);
     //app.get('/terms', viewController.terms);
-    //app.get('/profile', profileController.index);
-    //app.get('/oauth/linkedin', authController.authorize);
-    //app.get('/oauth/linkedin/callback', authController.authorizationCallback);
     app.get('/login', userController.getLogin);
     app.get('/logout', userController.logout);
     app.get('/account/profile', passportConfig.isAuthenticated, userController.getAccount);

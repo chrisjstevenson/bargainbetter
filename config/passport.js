@@ -35,6 +35,8 @@ passport.use(new LinkedInStrategy({
                     user.linkedin = profile.id;
                     user.tokens.push({ kind: 'linkedin', accessToken });
                     user.profile.name = user.profile.name || profile.displayName;
+                    user.profile.firstName = profile.firstName;
+                    user.profile.lastName = profile.lastName;
                     user.profile.location = user.profile.location || profile._json.location.name;
                     user.profile.picture = user.profile.picture || profile._json.pictureUrl;
                     user.profile.website = user.profile.website || profile._json.publicProfileUrl;
@@ -50,6 +52,7 @@ passport.use(new LinkedInStrategy({
         User.findOne({ linkedin: profile.id }, (err, existingUser) => {
             if (err) { return done(err); }
             if (existingUser) {
+                console.log(existingUser);
                 return done(null, existingUser);
             }
             User.findOne({ email: profile._json.emailAddress }, (err, existingEmailUser) => {
@@ -63,6 +66,8 @@ passport.use(new LinkedInStrategy({
                     user.tokens.push({ kind: 'linkedin', accessToken });
                     user.email = profile._json.emailAddress;
                     user.profile.name = profile.displayName;
+                    user.profile.firstName = profile.firstName;
+                    user.profile.lastName = profile.lastName;
                     user.profile.location = profile._json.location.name;
                     user.profile.picture = profile._json.pictureUrl;
                     user.profile.website = profile._json.publicProfileUrl;

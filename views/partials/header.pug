@@ -4,6 +4,14 @@
    .inner.navbar-right
      nav
        ul.nav.masthead-nav
+         li(class=(title == 'How it works') ? 'active' : undefined)
+           a(href='#howitworks') How it works
+         li(class=(title == 'Blog') ? 'active' : undefined)
+           a(href='#howitworks') Blog
+         li(class=(title == 'Newsletter') ? 'active' : undefined)
+           a(href='#howitworks') Newsletter
+         li(class=(title == 'Contact Us') ? 'active' : undefined)
+           a(href='#howitworks') Contact Us
          if !user
            li(class=(title == 'Login') ? 'active' : undefined)
              a(href='/login') Login
@@ -15,12 +23,12 @@
                if user.profile.picture
                  img(src=user.profile.picture).img-circle
                else
-                 img(src=user.gravatar(20)).img-circle
+                 img(src=user.gravatar(60)).img-circle
                span= user.profile.name || user.email || user.id
                i.caret
-             ul.dropdown-menu
-               li
-                 a(href='/account') My Account
-               li.divider
+             ul.dropdown-content
                li
                  a(href='/logout') Logout
+               li
+                 a(href='/account/profile') My Account
+               li.divider
