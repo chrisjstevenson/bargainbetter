@@ -79,7 +79,7 @@ input {
  */
 .masthead {
     z-index: 500; /* bring it front */
-    background-color: #5a5a5a;
+    background-color: transparent;
 }
 
 .masthead-brand {
@@ -222,9 +222,13 @@ input {
 
 /* Carousel base class */
 .carousel {
-    height: 550px;
+    height: 650px;
     margin-bottom: 60px;
     background-color: #5a5a5a;
+    background-image: url(../images/background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 
 }
 /* Since positioning the image, we need to help out the caption */

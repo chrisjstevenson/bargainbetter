@@ -1,7 +1,5 @@
 var passport = require('passport');
 var viewController = require('./controllers/viewController');
-var authController = require('./controllers/authController');
-var profileController = require('./controllers/profileController');
 var userController = require('./controllers/userController');
 var homeController = require('./controllers/homeController');
 
