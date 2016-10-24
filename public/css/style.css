@@ -79,7 +79,11 @@ input {
  */
 .masthead {
     z-index: 500; /* bring it front */
-    background-color: transparent;
+    background-color: transparent;  /*#5a5a5a;*/
+}
+
+.grayscale {
+    background-color: #5a5a5a;
 }
 
 .masthead-brand {

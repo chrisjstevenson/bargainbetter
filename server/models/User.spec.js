@@ -11,8 +11,11 @@ describe('User Model', () => {
             password: 'password',
             profile: {
                 name: 'tester mctesty',
-                headline: 'tests the best'
+                headline: 'tests the best',
+                firstName: 'tester',
+                lastName: 'mctesty'
             }
+
         });
         user.save((err) => {
             expect(err).to.be.null;
@@ -51,6 +54,16 @@ describe('User Model', () => {
             expect(user.profile.headline).to.equal('tests the best');
             done();
         });
+    });
+
+    it('should have a first name', (done) => {
+       User.findOne({ email: 'test@mail.com'}, (err, user) => {
+           expect(err).to.be.null;
+           expect(user.profile).to.be.defined;
+           expect(user.profile.firstName).to.equal('tester');
+           expect(user.profile.lastName).to.equal('mctesty');
+           done();
+       })
     });
 
     it('should delete a user', (done) => {
