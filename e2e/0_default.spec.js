@@ -1,6 +1,6 @@
 describe('BargainBetter', function() {
 
-    describe('Default', function() {
+    describe('Home', function() {
 
         before(function(client, done) {
             done();
@@ -24,33 +24,33 @@ describe('BargainBetter', function() {
             client
                 .url(client.launch_url)
                 .waitForElementVisible('body')
-                .assert.title('BargainBetter')
+                .assert.title('Home - BargainBetter')
                 .end()
         });
 
-        it('it should click register button', (client) => {
-            client
-                .url(client.launch_url)
-                .waitForElementVisible('body')
-                .click('.btn')
-                .assert.title('Authorize | LinkedIn')
-                .end()
-        });
-
-        it('it should authorize with linkedIn', (client) => {
-            client
-                .url(client.launch_url)
-                .waitForElementVisible('body')
-                .click('.btn')
-                .pause(1000);
-
-        client.setValue('input[name="session_key"]', ['chris.j.stevenson2@gmail.com']);
-        client
-            .setValue('input[name="session_password"', ['bargainTest'])
-            .click('input[name="authorize"]')
-            .pause(2000)
-            .assert.containsText('h1', "Thank you for signing up!")
-            .end();
-        });
+        //it('it should click register button', (client) => {
+        //    client
+        //        .url(client.launch_url)
+        //        .waitForElementVisible('body')
+        //        .click('.btn')
+        //        .assert.title('Authorize | LinkedIn')
+        //        .end()
+        //});
+        //
+        //it('it should authorize with linkedIn', (client) => {
+        //    client
+        //        .url(client.launch_url)
+        //        .waitForElementVisible('body')
+        //        .click('.btn')
+        //        .pause(1000);
+        //
+        //client.setValue('input[name="session_key"]', ['chris.j.stevenson2@gmail.com']);
+        //client
+        //    .setValue('input[name="session_password"', ['bargainTest'])
+        //    .click('input[name="authorize"]')
+        //    .pause(2000)
+        //    .assert.containsText('h1', "Thank you for signing up!")
+        //    .end();
+        //});
     });
 });

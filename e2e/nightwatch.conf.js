@@ -1,36 +1,24 @@
-// this should dl latest selenium and chromedriver, doesn't work because of work security settings
-require('selenium-download').ensure('./bin', function(error) {
-    if (error) {
-        return console.log(error);
-    } else {
-        console.log('✔ Selenium & Chromedriver downloaded to:', './bin');
-    }
-});
-
-
 module.exports = {
-    "src_folders": [
-        "."
-    ],
-    "output_folder": "./reports",
+    "src_folders": ["e2e"], // keep this set to e2e
+    "output_folder": "reports",
     "selenium": {
         "start_process": true,
-        "server_path": "./bin/selenium.jar",
+        "server_path": "e2e/bin/selenium.jar",
         "host": "127.0.0.1",
         "port": 4444,
         "cli_args": {
-            "webdriver.chrome.driver" : "./bin/chromedriver"
+            "webdriver.chrome.driver" : "e2e/bin/chromedriver"
         }
     },
     "test_settings": {
         "default": {
-            "launch_url" : "http://localhost:9002",
+            "launch_url" : "http://localhost:3000",
             "screenshots": {
                 "enabled": false,
-                "path": './screenshots'
+                "path": ""
             },
             "globals": {
-                "waitForConditionTimeout": 5000 // sometimes internet is slow so wait.
+                "waitForConditionTimeout": 5000
             },
             "desiredCapabilities": {
                 "browserName": "chrome"
@@ -39,9 +27,9 @@ module.exports = {
         "chrome": {
             "desiredCapabilities": {
                 "browserName": "chrome",
-                "javascriptEnabled": true // set to false to test progressive enhancement
+                "javascriptEnabled": true
             }
         }
     },
     "test_runner": "mocha"
-};
+}

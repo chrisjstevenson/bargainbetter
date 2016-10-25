@@ -38,14 +38,14 @@
     "test": "npm run unit-tests",
     "unit-tests": "node node_modules/mocha/bin/mocha --reporter spec --timeout 5000 \"server/**/*.spec.js\"",
     "integration-tests": "node node_modules/mocha/bin/mocha \"server/**/*.intspec.js\"",
-    "ui-tests": "cd e2e && ../node_modules/.bin/nightwatch",
-    "postinstall": "node e2e/nightwatch.conf.js"
+    "ui-tests": "node node_modules/gulp/bin/gulp ui-tests"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "expect": "^1.20.2",
     "gulp": "^3.9.1",
     "gulp-mocha": "^3.0.1",
+    "gulp-nightwatch": "^0.3.2",
     "gulp-protractor": "^3.0.0",
     "mocha": "^3.0.1",
     "nightwatch": "^0.9.8",

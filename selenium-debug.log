@@ -1,0 +1,36 @@
+09:55:35.286 INFO - Launching a standalone Selenium Server
+09:55:35.386 INFO - Java: Oracle Corporation 25.71-b15
+09:55:35.386 INFO - OS: Mac OS X 10.11.6 x86_64
+09:55:35.433 INFO - v2.53.0, with Core v2.53.0. Built from revision 35ae25b
+09:55:35.597 INFO - Driver provider org.openqa.selenium.ie.InternetExplorerDriver registration is skipped:
+registration capabilities Capabilities [{ensureCleanSession=true, browserName=internet explorer, version=, platform=WINDOWS}] does not match the current platform MAC
+09:55:35.598 INFO - Driver provider org.openqa.selenium.edge.EdgeDriver registration is skipped:
+registration capabilities Capabilities [{browserName=MicrosoftEdge, version=, platform=WINDOWS}] does not match the current platform MAC
+09:55:35.598 INFO - Driver class not found: com.opera.core.systems.OperaDriver
+09:55:35.599 INFO - Driver provider com.opera.core.systems.OperaDriver is not registered
+09:55:35.602 INFO - Driver class not found: org.openqa.selenium.htmlunit.HtmlUnitDriver
+09:55:35.603 INFO - Driver provider org.openqa.selenium.htmlunit.HtmlUnitDriver is not registered
+09:55:35.783 INFO - RemoteWebDriver instances should connect to: http://127.0.0.1:4444/wd/hub
+09:55:35.784 INFO - Selenium Server is up and running
+09:55:36.632 INFO - Executing: [new session: Capabilities [{acceptSslCerts=true, browserName=chrome, javascriptEnabled=true, platform=ANY}]])
+09:55:36.648 INFO - Creating a new session for Capabilities [{acceptSslCerts=true, browserName=chrome, javascriptEnabled=true, platform=ANY}]
+Starting ChromeDriver 2.24.417412 (ac882d3ce7c0d99292439bf3405780058fcca0a6) on port 46974
+Only local connections are allowed.
+09:55:39.616 INFO - Done: [new session: Capabilities [{acceptSslCerts=true, browserName=chrome, javascriptEnabled=true, platform=ANY}]]
+09:55:39.639 INFO - Executing: [get: http://localhost:3000])
+09:55:44.515 INFO - Done: [get: http://localhost:3000]
+09:55:44.530 INFO - Executing: [find elements: By.cssSelector: body])
+09:55:44.652 INFO - Done: [find elements: By.cssSelector: body]
+09:55:44.660 INFO - Executing: [is displayed: 0 [[ChromeDriver: chrome on MAC (fc37b3a414556815ffa81c276bfbb7df)] -> css selector: body]])
+09:55:44.689 INFO - Done: [is displayed: 0 [[ChromeDriver: chrome on MAC (fc37b3a414556815ffa81c276bfbb7df)] -> css selector: body]]
+09:55:44.700 INFO - Executing: [get title])
+09:55:44.711 INFO - Done: [get title]
+09:55:44.722 INFO - Executing: [delete session: a93da3dc-f782-4b1d-adeb-454c8b671922])
+09:55:44.828 INFO - Done: [delete session: a93da3dc-f782-4b1d-adeb-454c8b671922]
+09:55:44.846 INFO - Executing: [new session: Capabilities [{acceptSslCerts=true, browserName=chrome, javascriptEnabled=true, platform=ANY}]])
+09:55:44.848 INFO - Creating a new session for Capabilities [{acceptSslCerts=true, browserName=chrome, javascriptEnabled=true, platform=ANY}]
+Starting ChromeDriver 2.24.417412 (ac882d3ce7c0d99292439bf3405780058fcca0a6) on port 37828
+Only local connections are allowed.
+09:55:46.170 INFO - Done: [new session: Capabilities [{acceptSslCerts=true, browserName=chrome, javascriptEnabled=true, platform=ANY}]]
+09:55:46.177 INFO - Executing: [delete session: 307456db-5e35-4d4e-8f27-81d4d84ae3bb])
+09:55:46.249 INFO - Done: [delete session: 307456db-5e35-4d4e-8f27-81d4d84ae3bb]
