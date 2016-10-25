@@ -2,27 +2,27 @@ describe('BargainBetter', function() {
 
     describe('Home', function() {
 
-        before(function(client, done) {
+        before(function(browser, done) {
             done();
         });
 
-        after(function(client, done) {
-            client.end(function() {
+        after(function(browser, done) {
+            browser.end(function() {
                 done();
             });
         });
 
-        afterEach(function(client, done) {
+        afterEach(function(browser, done) {
             done();
         });
 
-        beforeEach(function(client, done) {
+        beforeEach(function(browser, done) {
             done();
         });
 
-        it('it should have a title', function(client) {
-            client
-                .url(client.launch_url)
+        it('it should have a title', function(browser) {
+            browser
+                .url(browser.launch_url)
                 .waitForElementVisible('body')
                 .assert.title('Home - BargainBetter')
                 .end()

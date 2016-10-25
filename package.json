@@ -35,7 +35,7 @@
   },
   "scripts": {
     "start": "node app.js",
-    "test": "npm run unit-tests",
+    "test": "npm run unit-tests && npm run ui-tests",
     "unit-tests": "node node_modules/mocha/bin/mocha --reporter spec --timeout 5000 \"server/**/*.spec.js\"",
     "integration-tests": "node node_modules/mocha/bin/mocha \"server/**/*.intspec.js\"",
     "ui-tests": "node node_modules/gulp/bin/gulp ui-tests"
