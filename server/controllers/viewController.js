@@ -11,3 +11,7 @@ viewController.privacy = function (req, res) {
 viewController.terms = function (req, res) {
     res.render('terms');
 };
+
+viewController.info = function (req, res) {
+    res.render('info');
+};
