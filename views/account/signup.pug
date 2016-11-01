@@ -4,8 +4,7 @@ block content
   .container
       .page-header
         h3 Sign up
-        // Disabling for now
-          form.form-horizontal(id='signup-form', method='POST')
+        form.form-horizontal(id='signup-form', method='POST')
             input(type='hidden', name='_csrf', value=_csrf)
             .form-group
               label.col-sm-3.control-label(for='email') Email
@@ -29,8 +28,8 @@ block content
             .col-md-3.col-md-offset-3
               a.btn.btn-block.btn-linkedin.btn-social(href='/auth/linkedin')
                 i.fa.fa-linkedin
-                | Sign in with LinkedIn
+                | Continue with LinkedIn
             .col-md-3
               a.btn.btn-block.btn-facebook.btn-social(href='/auth/facebook')
                 i.fa.fa-facebook
-                | Sign in with Facebook
+                | Continue with Facebook

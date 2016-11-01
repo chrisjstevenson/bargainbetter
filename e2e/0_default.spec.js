@@ -20,12 +20,21 @@ describe('BargainBetter', function() {
             done();
         });
 
-        it('it should have a title', function(browser) {
+        it('should have a title', function(browser) {
             browser
                 .url(browser.launch_url)
                 .waitForElementVisible('body')
                 .assert.title('Home - BargainBetter')
                 .end()
+        });
+
+        it('should navigate to login view', function(browser) {
+            browser
+                .url(browser.launch_url)
+                .waitForElementVisible('body')
+                .click('body > div.masthead > div > nav > ul > li:nth-child(5) > a')
+                .assert.title('Login - BargainBetter')
+                .end();
         });
 
         //it('it should click register button', (client) => {
