@@ -20,8 +20,6 @@
              a.dropdown-toggle(href='#', data-toggle='dropdown')
                if user.profile.picture
                  img(src=user.profile.picture).img-circle
-               else
-                 img(src=user.gravatar(60)).img-circle
                span= user.profile.name || user.email || user.id
                i.caret
              ul.dropdown-content

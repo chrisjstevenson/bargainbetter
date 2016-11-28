@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var expressValidator = require('express-validator');
 var favicon = require('serve-favicon');
 var passport = require('passport');
 var session = require('express-session');
@@ -13,6 +14,8 @@ app.set('view engine', 'pug');
 app.set('views', process.cwd() + '/views');
 app.use(express.static('app'));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(expressValidator());
 app.use('/app', express.static('app'));
 app.use('/public', express.static('public'));
 app.use('/node_modules', express.static('node_modules'));

@@ -2,6 +2,9 @@ extends ../layout
 
 block content
   .container
+
+      include ../partials/flash
+
       .page-header
         h3 Sign up
         form.form-horizontal(id='signup-form', method='POST')
@@ -19,17 +22,17 @@ block content
               .col-sm-4
                 input.form-control(type='password', name='confirmPassword', id='confirmPassword', placeholder='Confirm Password', required)
             .form-group
-              .col-sm-offset-3.col-sm-4
+              .col-sm-4.col-sm-offset-4
                 button.btn.btn-success(type='submit')
                   i.fa.fa-user-plus
                   | Signup
-        .form-group
-          .row
-            .col-md-3.col-md-offset-3
-              a.btn.btn-block.btn-linkedin.btn-social(href='/auth/linkedin')
-                i.fa.fa-linkedin
-                | Continue with LinkedIn
-            .col-md-3
+
+            .form-group
+              .col-md-3.col-md-offset-4
+                a.btn.btn-block.btn-linkedin.btn-social(href='/auth/linkedin')
+                  i.fa.fa-linkedin
+                  | Continue with LinkedIn
+            //.col-md-3
               a.btn.btn-block.btn-facebook.btn-social(href='/auth/facebook')
                 i.fa.fa-facebook
                 | Continue with Facebook

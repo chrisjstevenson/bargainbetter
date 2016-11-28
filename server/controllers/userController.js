@@ -29,7 +29,6 @@ exports.logout = (req, res) => {
  */
 exports.getSignup = (req, res) => {
     if (req.user) {
-        log.info(req.user);
         return res.redirect('/');
     }
     res.render('account/signup', {
@@ -58,6 +57,7 @@ exports.postSignup = (req, res, next) => {
         email: req.body.email,
         password: req.body.password
     });
+
 
     User.findOne({ email: req.body.email }, (err, existingUser) => {
         if (err) { return next(err); }

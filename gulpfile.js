@@ -6,6 +6,7 @@ var server = require('./server/server');
 var portfinder = require('portfinder');
 var os = require('os');
 var config = require('./config/config');
+var mongoose = require('mongoose');
 
 gulp.task('find-open-port', function (cb) {
     portfinder.getPort(function (err, port) {
@@ -66,3 +67,12 @@ function runSelenium(args, cb) {
             cb(err);
         });
 }
+
+// having issues with this
+gulp.task('clean-db', function(cb) {
+    mongoose.connect('mongodb://localhost/bargainbetter', function (){
+        mongoose.connection.db.dropDatabase();
+        cb();
+        process.exit();
+    });
+});

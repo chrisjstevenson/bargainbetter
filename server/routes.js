@@ -8,7 +8,9 @@ module.exports = function (app) {
     const passportConfig = require('../config/passport');
 
     app.get('/', homeController.index);
-    app.get('/signup', userController.getSignup); //only linkedin for now
+    app.get('/signup', userController.getSignup);
+    app.post('/signup', userController.postSignup);
+
     //app.get('/privacy', viewController.privacy);
     //app.get('/terms', viewController.terms);
     app.get('/login', userController.getLogin);
