@@ -66,7 +66,35 @@ describe('BargainBetter', function() {
                 .end();
         });
 
+        it ('should allow a user to login with default credentials', function(browser) {
+            browser
+                .url(browser.launch_url + '/logout')
+                .url(browser.launch_url + '/login')
+                .setValue('input[name="email"]', [email])
+                .setValue('input[name="password"]', ['abc123'])
 
+                .click('.btn.btn-primary')
+
+                .waitForElementVisible('.dropdown-toggle')
+
+                .assert.title('Home - BargainBetter')
+                .assert.containsText('span', email);
+        });
+
+        //it ('should allow a user to login with linked-in credentials', function(browser) {
+        //    browser
+        //        .url(browser.launch_url + '/logout')
+        //        .url(browser.launch_url + '/login')
+        //        .setValue('input[name="email"]', [email])
+        //        .setValue('input[name="password"]', ['abc123'])
+        //
+        //        .click('.btn.btn-primary')
+        //
+        //        .waitForElementVisible('.dropdown-toggle')
+        //
+        //        .assert.title('Home - BargainBetter')
+        //        .assert.containsText('span', email);
+        //});
 
 
         //

@@ -14,6 +14,7 @@ module.exports = function (app) {
     //app.get('/privacy', viewController.privacy);
     //app.get('/terms', viewController.terms);
     app.get('/login', userController.getLogin);
+    app.post('/login', userController.postLogin);
     app.get('/logout', userController.logout);
     app.get('/account/profile', passportConfig.isAuthenticated, userController.getAccount);
 
