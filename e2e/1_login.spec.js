@@ -78,7 +78,9 @@ describe('BargainBetter', function() {
                 .waitForElementVisible('.dropdown-toggle')
 
                 .assert.title('Home - BargainBetter')
-                .assert.containsText('span', email);
+                .assert.containsText('span', email)
+                .end();
+
         });
 
         //it ('should allow a user to login with linked-in credentials', function(browser) {

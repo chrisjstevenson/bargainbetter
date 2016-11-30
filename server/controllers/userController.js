@@ -139,7 +139,6 @@ exports.postUpdateProfile = (req, res, next) => {
         user.profile.name = req.body.name || '';
         user.profile.firstName = req.body.firstName || '';
         user.profile.lastName = req.body.lastName || '';
-        user.profile.gender = req.body.gender || '';
         user.profile.location = req.body.location || '';
         user.profile.website = req.body.website || '';
         user.save((err) => {
