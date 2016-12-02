@@ -22,7 +22,9 @@ const userSchema = new mongoose.Schema({
         industry: String, // industry
         location: String,
         picture: String,
-        website: String
+        website: String,
+        school: String,
+        company: String
     }
 }, { timestamps: true });
 

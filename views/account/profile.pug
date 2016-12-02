@@ -4,8 +4,9 @@ block content
   .container
     include ../partials/flash
 
-    h3 Account Settings
     .page-header
+    h3 Account Settings
+
     row
       .col-sm-6
         h4 Profile Information
@@ -27,6 +28,14 @@ block content
             label.col-sm-3.control-label(for='website') Website
             .col-sm-7
               input.form-control(type='text', name='website', id='website', value=user.profile.website)
+          .form-group
+            label.col-sm-3.control-label(for='school') School
+            .col-sm-7
+              input.form-control(type='text', name='school', id='school', value=user.profile.school)
+          .form-group
+            label.col-sm-3.control-label(for='company') Company
+            .col-sm-7
+              input.form-control(type='text', name='company', id='company', value=user.profile.company)
           .form-group
             .col-sm-offset-3.col-sm-4
               button.btn.btn-update-profile.btn-primary(type='submit')

@@ -141,6 +141,8 @@ exports.postUpdateProfile = (req, res, next) => {
         user.profile.lastName = req.body.lastName || '';
         user.profile.location = req.body.location || '';
         user.profile.website = req.body.website || '';
+        user.profile.school = req.body.school || '';
+        user.profile.company = req.body.company || '';
         user.save((err) => {
             if (err) {
                 if (err.code === 11000) {
