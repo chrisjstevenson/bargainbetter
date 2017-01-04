@@ -134,45 +134,24 @@ input {
     border-bottom-color: #27A8E0;
 }
 
-@media (min-width: 768px) {
-    .masthead-brand {
-        float: left;
-    }
-    .masthead-nav {
-        float: right;
-    }
-}
 
 /*
  * Affix and center
  */
-
-@media (min-width: 40em) {
-    /* Pull out the header and footer */
-    .masthead {
-        color: #fff;
-        position: fixed;
-        top: 0;
-    }
-    .mastfoot {
-        position: fixed;
-        bottom: 0;
-    }
-    /* Start the vertical centering */
-    .site-wrapper-inner {
-        vertical-align: middle;
-    }
-    /* Handle the widths */
-    .masthead,
-    .mastfoot,
-    .cover-container {
-        width: 100%; /* Must be percentage or pixels for horizontal alignment */
-    }
+.masthead {
+    color: #fff;
+    position: fixed;
 }
 
-@media (min-width: 62em) {
-    .masthead,
-    .mastfoot
+/* Start the vertical centering */
+.site-wrapper-inner {
+    vertical-align: middle;
+}
+/* Handle the widths */
+.masthead,
+.mastfoot,
+.cover-container {
+    width: 100%; /* Must be percentage or pixels for horizontal alignment */
 }
 
 
@@ -241,7 +220,6 @@ input {
 .carousel {
     height: 650px;
     margin-bottom: 60px;
-    background-color: #5a5a5a;
     background-image: url(../images/background.png);
     background-size: cover;
     background-repeat: no-repeat;
