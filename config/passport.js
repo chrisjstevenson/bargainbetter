@@ -60,7 +60,7 @@ passport.use(new LinkedInStrategy({
                     user.profile.lastName = profile.lastName;
                     user.profile.location = user.profile.location || profile._json.location.name;
 
-                    var profilePictureUrl = 'https://www.fillmurray.com/g/200/300'; // as a default
+                    let profilePictureUrl = 'https://www.fillmurray.com/g/200/300'; // as a default
                     if (profile._json.pictureUrls.values) {
                         profilePictureUrl = profile._json.pictureUrls.values[0];
                     }
