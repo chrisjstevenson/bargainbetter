@@ -1,4 +1,4 @@
-FROM node:6-alpine
+FROM node:argon
 
 #temporary workaround for prod deploys
 ENV NODE_ENV=production
