@@ -9,6 +9,20 @@ block content
 
     row
       .col-sm-6
+        if user.profile.picture
+          img(src=user.profile.picture).img-circle-lg
+
+        h4 Linked Accounts
+          .form-horizontal
+            .form-group
+              .col-2
+                if user.linkedin
+                  p: a.text-danger(href='/account/unlink/linkedin') Unlink your LinkedIn account
+                else
+                  p: a(href='/auth/linkedin') Link your LinkedIn account
+
+    row
+      .col-sm-6
         h4 Profile Information
         form.form-horizontal(action='/account', method='POST')
           input(type='hidden', name='_csrf', value=_csrf)
@@ -57,15 +71,7 @@ block content
                   i.fa.fa-lock
                   | Change Password
     row
-      .col-sm-6
-        h4 Linked Accounts
-        .form-horizontal
-          .form-group
-            .col-2
-              if user.linkedin
-                p: a.text-danger(href='/account/unlink/linkedin') Unlink your LinkedIn account
-              else
-                p: a(href='/auth/linkedin') Link your LinkedIn account
+      .col-sm-3
 
   .page-header
   h3 Delete Account

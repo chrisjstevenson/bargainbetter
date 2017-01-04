@@ -59,7 +59,13 @@ passport.use(new LinkedInStrategy({
                     user.profile.firstName = profile.firstName;
                     user.profile.lastName = profile.lastName;
                     user.profile.location = user.profile.location || profile._json.location.name;
-                    user.profile.picture = user.profile.picture || profile._json.pictureUrl;
+
+                    let profilePictureUrl = 'https://www.fillmurray.com/g/200/300'; // as a default
+                    if (profile._json.pictureUrls.values) {
+                        profilePictureUrl = profile._json.pictureUrls.values[0];
+                    }
+
+                    user.profile.picture = user.profile.picture || profilePictureUrl;
                     user.profile.website = user.profile.website || profile._json.publicProfileUrl;
                     user.save((err) => {
                         if (err) { return done(err); }
@@ -90,7 +96,7 @@ passport.use(new LinkedInStrategy({
                     user.profile.firstName = profile.firstName;
                     user.profile.lastName = profile.lastName;
                     user.profile.location = profile._json.location.name;
-                    user.profile.picture = profile._json.pictureUrl;
+                    user.profile.picture = profile._json.pictureUrls.values[0];
                     user.profile.website = profile._json.publicProfileUrl;
                     user.save((err) => {
                         done(err, user);

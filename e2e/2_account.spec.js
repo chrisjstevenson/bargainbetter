@@ -39,7 +39,7 @@ describe('BargainBetter', function() {
                 .expect.element('input[name="email"]').to.have.value.that.equals(email);
         });
 
-        it('it should update account information', function(browser) {
+        it('should flash message when updating account information', function(browser) {
             browser
                 .setValue('input[name="name"]', "tester")
                 .setValue('input[name="location"]', "earth")
@@ -48,13 +48,42 @@ describe('BargainBetter', function() {
                 .click('.btn-update-profile')
 
                 .assert.containsText('.alert > div', "Profile information has been updated.");
-                //.expect.element('input[name="email"]').to.have.value.that.equals(email)
-                //.expect.element('input[name="name"]').to.have.value.that.equals("tester")
-                //.expect.element('input[name="location"]').to.have.value.that.equals("earth")
-                //.expect.element('input[name="website"]').to.have.value.that.equals("http://facebook.com/")
+        });
+
+        it('should link linked-in account details', function(browser) {
+            browser
+                .click('div.col-2 > p > a')
+                .setValue('input[name="session_key"]', ['chris.j.stevenson2@gmail.com'])
+                .setValue('input[name="session_password"', ['bargainTest'])
+                .click('input[name="authorize"]')
+                .pause(2000)
+
+                .url(browser.launch_url + '/account')
+
+                .assert.containsText('.text-danger', "Unlink your LinkedIn account");
+        });
+
+        it('should show a profile picture', function(browser) {
+            browser
+                .assert.elementPresent('.img-circle-lg');
+        });
+
+        it('should unlink linked-in account details', function(browser) {
+            browser
+                .click('.text-danger')
+                .pause(1000)
+                .assert.containsText('.alert > div', "linkedin account has been unlinked.")
+                .assert.containsText('div.col-2 > p > a', "Link your LinkedIn account");
         });
 
 
+        it('should allow a user to delete their profile', function(browser) {
+           browser
+               .click('.btn.btn-danger')
+               .pause(1000)
+
+               .assert.containsText('body > div.masthead > div > nav > ul > li:nth-child(5) > a', "Login");
+        });
 
 
 

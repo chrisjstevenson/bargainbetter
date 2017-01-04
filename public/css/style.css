@@ -41,7 +41,7 @@ h4 {
 }
 
 .container {
-    margin-top: 100px;
+    margin-top: 150px;
 }
 
 footer > a,
@@ -374,11 +374,16 @@ p.lead {
     margin: 0 auto;
 }
 
-.img-circle {
+.img-circle,
+.img-circle-lg {
     border-radius: 50%;
     border: #27A8E0;
     width: 40px;
     margin-right: 5px
+}
+
+.img-circle-lg {
+    width: 200px;
 }
 
 .dropdown {
