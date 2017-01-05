@@ -20,9 +20,10 @@ module.exports = function (app) {
     app.post('/account', passportConfig.isAuthenticated, userController.postUpdateProfile);
     app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
     app.post('/account/delete', passportConfig.isAuthenticated, userController.postDeleteAccount);
+    app.get('/account/listings', passportConfig.isAuthenticated, userController.getListings);
 
     app.get('/auth/linkedin', passport.authenticate('linkedin', { state: 'hhfyWEWJhKGQF' }));
     app.get('/auth/linkedin/callback', passport.authenticate('linkedin', { failureRedirect: '/login' }), (req, res) => {
-        res.redirect('/');
+        res.redirect('/account/listings');
     });
 };

@@ -1,0 +1,66 @@
+extends ../layout
+
+block content
+    .container
+        include ../partials/flash
+
+        row
+          .page-header.page-header-left
+              h2 Things you are selling
+
+        row
+          .col-sm-3
+            img(src="http://placehold.it/250x150")
+          .col-sm-8
+            .row-details-fixed
+                div.h4 Apple Watch Series 1 38mm Rose Gold Aluminum Case Pink Sand Sport Band - Rose Gold Aluminum
+                div Durable, lightweight aluminum cases in silver, space gray, gold, and rose gold. Sport Band in a variety of colors. All the features of the original Apple Watch, plus a new dual-core processor for faster performance. All models run watchOS 3.
+                .row-details-right These connections are interested: &nbsp;
+                    div
+                    img(src="https://www.fillmurray.com/40/40").img-circle-sm
+                    img(src="https://www.fillmurray.com/g/40/40").img-circle-sm
+                    img(src="https://www.fillmurray.com/50/50").img-circle-sm
+
+
+        row
+          .col-sm-3
+            img(src="http://placehold.it/250x150")
+          .col-sm-8
+            .row-details-fixed
+                div.h4 Harry Potter: Complete 8-Film Collection [8 Discs] [DVD]
+                div Full disc pack, never been used.
+                .row-details-right These connections are interested: &nbsp;
+                    div
+                    img(src="https://www.fillmurray.com/40/40").img-circle-sm
+                    img(src="https://www.fillmurray.com/g/40/40").img-circle-sm
+                    img(src="https://www.fillmurray.com/50/50").img-circle-sm
+                    img(src="https://www.fillmurray.com/40/40").img-circle-sm
+                    img(src="https://www.fillmurray.com/g/40/40").img-circle-sm
+                    img(src="https://www.fillmurray.com/50/50").img-circle-sm
+
+        row
+          .col-sm-3
+              img(src="http://placehold.it/250x150")
+          .col-sm-8
+            .row-details-fixed
+                div.h4 Sony Playstation 4 Pro Console + 2 Controllers
+                div GREATNESS AWAITS.
+                .row-details-right These connections are interested: &nbsp;
+                    div
+                    img(src="https://www.fillmurray.com/40/40").img-circle-sm
+                    img(src="https://www.fillmurray.com/g/40/40").img-circle-sm
+                    img(src="https://www.fillmurray.com/50/50").img-circle-sm
+
+
+
+
+    .page-header
+        h2 Post a new item
+        form.form-horizontal(action='/account/listing', method='POST')
+            .form-group
+                p.col-sm-offset-3.col-sm-6 You can add a new item, just have a picture title and description ready.
+                input(type='hidden', name='_csrf', value=_csrf)
+                .col-sm-offset-3.col-sm-6
+                    button.btn.btn-success(type='submit')
+                        i.fa.fa-trash
+                        | Post an item

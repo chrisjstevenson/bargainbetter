@@ -39,7 +39,7 @@ exports.postLogin = (req, res, next) => {
         req.logIn(user, (err) => {
             if (err) { return next(err); }
             req.flash('success', { msg: 'Success! You are logged in.' });
-            res.redirect(req.session.returnTo || '/');
+            res.redirect(req.session.returnTo || '/account/listings');
         });
     })(req, res, next);
 };
@@ -101,7 +101,7 @@ exports.postSignup = (req, res, next) => {
                 if (err) {
                     return next(err);
                 }
-                res.redirect('/');
+                res.redirect('/account/listings');
             });
         });
     });
@@ -188,3 +188,13 @@ exports.postDeleteAccount = (req, res, next) => {
     });
 };
 
+
+/**
+ * GET /account/listings
+ * Listings page.
+ */
+exports.getListings = (req, res) => {
+    res.render('account/listings', {
+        title: 'Listings'
+    });
+};

@@ -375,6 +375,7 @@ p.lead {
 }
 
 .img-circle,
+.img-circle-sm,
 .img-circle-lg {
     border-radius: 50%;
     border: #27A8E0;
@@ -384,6 +385,10 @@ p.lead {
 
 .img-circle-lg {
     width: 200px;
+}
+
+.img-circle-sm {
+    width: 20px;
 }
 
 .dropdown {
@@ -402,4 +407,23 @@ p.lead {
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+
+/* Listings
+
+ */
+.row-details-fixed {
+    text-align: left;
+    width: 730px;
+    height: 180px;
+}
+
+.row-details-right {
+    float: right;
+    font-weight: bold;
+}
+
+.page-header-left {
+    text-align: left;
 }

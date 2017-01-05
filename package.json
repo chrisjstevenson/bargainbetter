@@ -42,7 +42,7 @@
     "test": "npm run unit-tests",
     "unit-tests": "node node_modules/mocha/bin/mocha --reporter spec --timeout 5000 \"server/**/*.spec.js\"",
     "integration-tests": "node node_modules/mocha/bin/mocha \"server/**/*.intspec.js\"",
-    "ui-tests": "gulp ui-tests"
+    "ui-specs": "gulp ui-tests"
   },
   "devDependencies": {
     "chai": "^3.5.0",
